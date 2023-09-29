@@ -9,7 +9,7 @@ include ActionView::Helpers::DateHelper
 
     def birth_date_cannot_be_future
         if birth_date > Date.today
-            errors.add(:birth_date, "birthdate cannot be in the future")
+            errors.add(birth_date, "birthdate cannot be in the future")
         end
     end
 
