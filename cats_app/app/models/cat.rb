@@ -2,7 +2,10 @@ require "action_view"
 
 class Cat < ApplicationRecord
 include ActionView::Helpers::DateHelper
-    validates presence: true, inclusion: {in: %w(M F)}, :birth_date_cannot_be_future
+    validates :sex, presence: true, inclusion: {in: %w(M F)}
+    validates :color, presence: true 
+    validates :name, presence: true 
+    validate :birth_date_cannot_be_future
 
     def birth_date_cannot_be_future
         if birth_date > Date.today
